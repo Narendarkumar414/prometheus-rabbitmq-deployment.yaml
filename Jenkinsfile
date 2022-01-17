@@ -30,7 +30,7 @@ pipeline {
                                 ],
                                 [$class: 'CascadeChoiceParameter', 
                                     choiceType: 'PT_SINGLE_SELECT', 
-                                    description: 'Select the cluster from the Dropdown List',
+                                    description: 'Select the AMI from the Dropdown List',
                                     name: 'AMI List', 
                                     referencedParameters: 'Env', 
                                     script: 
@@ -45,13 +45,13 @@ pipeline {
                                                 sandbox: false, 
                                                 script: '''
                                                 if (Env.equals("dev")){
-                                                    return["cluster_dev"]
+                                                    return["ami-sd2345sd", "ami-asdf245sdf", "ami-asdf3245sd"]
                                                 }
                                                 else if(Env.equals("stage")){
-                                                    return["cluster_stage"]
+                                                    return["ami-sd34sdf", "ami-sdf345sdc", "ami-sdf34sdf"]
                                                 }
                                                 else if(Env.equals("prod")){
-                                                    return["cluster_prod"]
+                                                    return["ami-sdf34sdf", "ami-sdf34ds", "ami-sdf3sf3"]
                                                 }
                                                 '''
                                             ] 
