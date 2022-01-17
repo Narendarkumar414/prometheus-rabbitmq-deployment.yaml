@@ -30,7 +30,7 @@ pipeline {
                                 ],
                                 [$class: 'CascadeChoiceParameter', 
                                     choiceType: 'PT_SINGLE_SELECT', 
-                                    description: 'Select the CLUSTER from the Dropdown List',
+                                    description: 'Select the cluster from the Dropdown List',
                                     name: 'CLUSTER', 
                                     referencedParameters: 'Env', 
                                     script: 
@@ -45,13 +45,13 @@ pipeline {
                                                 sandbox: false, 
                                                 script: '''
                                                 if (Env.equals("qa")){
-                                                    return["cluster-qa"]
+                                                    return["cluster-qa", "cluster-uat", "cluster-prod"]
                                                 }
                                                 else if(Env.equals("uat")){
-                                                    return["cluster-uat"]
+                                                    return["cluster-qa", "cluster-uat", "cluster-prod"]
                                                 }
                                                 else if(Env.equals("prod")){
-                                                    return["cluster-prod"]
+                                                    return["cluster-qa", "cluster-uat", "cluster-prod"]
                                                 }
                                                 '''
                                             ] 
@@ -67,10 +67,10 @@ pipeline {
                                         script: 'return["Could not get AMi Information"]', 
                                         script: [
                                             script: '''
-                                                    if (Env.equals("dev")){
+                                                    if (Env.equals("qa")){
                                                         return["ami-sd2345sd:  AMI with Java", "ami-asdf245sdf: AMI with Python", "ami-asdf3245sd: AMI with Groovy"]
                                                     }
-                                                    else if(Env.equals("stage")){
+                                                    else if(Env.equals("uat")){
                                                         return["ami-sd34sdf:  AMI with Java", "ami-sdf345sdc: AMI with Python", "ami-sdf34sdf: AMI with Groovy"]
                                                     }
                                                     else if(Env.equals("prod")){
