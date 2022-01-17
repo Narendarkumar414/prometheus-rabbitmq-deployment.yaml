@@ -45,13 +45,13 @@ pipeline {
                                                 sandbox: false, 
                                                 script: '''
                                                 if (Env.equals("dev")){
-                                                    return["cluster-dev", "cluster-stage", "cluster-prod"]
+                                                    return["cluster_dev"]
                                                 }
                                                 else if(Env.equals("stage")){
-                                                    return["cluster-dev", "cluster-stage", "cluster-prod"]
+                                                    return["cluster_stage"]
                                                 }
                                                 else if(Env.equals("prod")){
-                                                    return["cluster-dev", "cluster-stage", "cluster-prod"]
+                                                    return["cluster_prod"]
                                                 }
                                                 '''
                                             ] 
