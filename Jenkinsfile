@@ -24,14 +24,14 @@ pipeline {
                                             classpath: [], 
                                             sandbox: false, 
                                             script: 
-                                                "return['dev','stage','prod']"
+                                                "return['qa','uat','prod']"
                                         ]
                                     ]
                                 ],
                                 [$class: 'CascadeChoiceParameter', 
                                     choiceType: 'PT_SINGLE_SELECT', 
-                                    description: 'Select the AMI from the Dropdown List',
-                                    name: 'AMI List', 
+                                    description: 'Select the CLUSTER from the Dropdown List',
+                                    name: 'CLUSTER', 
                                     referencedParameters: 'Env', 
                                     script: 
                                         [$class: 'GroovyScript', 
@@ -44,14 +44,14 @@ pipeline {
                                                 classpath: [], 
                                                 sandbox: false, 
                                                 script: '''
-                                                if (Env.equals("dev")){
-                                                    return["ami-sd2345sd", "ami-asdf245sdf", "ami-asdf3245sd"]
+                                                if (Env.equals("qa")){
+                                                    return["cluster-qa"]
                                                 }
-                                                else if(Env.equals("stage")){
-                                                    return["ami-sd34sdf", "ami-sdf345sdc", "ami-sdf34sdf"]
+                                                else if(Env.equals("uat")){
+                                                    return["cluster-uat"]
                                                 }
                                                 else if(Env.equals("prod")){
-                                                    return["ami-sdf34sdf", "ami-sdf34ds", "ami-sdf3sf3"]
+                                                    return["cluster-prod"]
                                                 }
                                                 '''
                                             ] 
