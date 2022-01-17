@@ -30,7 +30,7 @@ pipeline {
                                 ],
                                 [$class: 'CascadeChoiceParameter', 
                                     choiceType: 'PT_SINGLE_SELECT', 
-                                    description: 'Select the AMI from the Dropdown List',
+                                    description: 'Select the CONFIG from the Dropdown List',
                                     name: 'AMI List', 
                                     referencedParameters: 'Env', 
                                     script: 
@@ -45,13 +45,13 @@ pipeline {
                                                 sandbox: false, 
                                                 script: '''
                                                 if (Env.equals("dev")){
-                                                    return["ami-sd2345sd", "ami-asdf245sdf", "ami-asdf3245sd"]
+                                                    return["conf1", "conf2", "conf3"]
                                                 }
                                                 else if(Env.equals("stage")){
-                                                    return["ami-sd34sdf", "ami-sdf345sdc", "ami-sdf34sdf"]
+                                                    return["conf4", "conf5", "conf6"]
                                                 }
                                                 else if(Env.equals("prod")){
-                                                    return["ami-sdf34sdf", "ami-sdf34ds", "ami-sdf3sf3"]
+                                                    return["conf7", "conf8", "conf9"]
                                                 }
                                                 '''
                                             ] 
@@ -59,7 +59,7 @@ pipeline {
                                 ],
                                 [$class: 'DynamicReferenceParameter', 
                                     choiceType: 'ET_ORDERED_LIST', 
-                                    description: 'Select the  AMI based on the following infomration', 
+                                    description: 'Select the  AMI based on the following information', 
                                     name: 'Image Information', 
                                     referencedParameters: 'Env', 
                                     script: 
