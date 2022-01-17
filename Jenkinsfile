@@ -68,13 +68,13 @@ pipeline {
                                         script: [
                                             script: '''
                                                     if (Env.equals("dev")){
-                                                        return["ami-sd2345sd:  AMI with Java", "ami-asdf245sdf: AMI with Python", "ami-asdf3245sd: AMI with Groovy"]
+                                                        return["conf1:  AMI with Java", "conf2: AMI with Python", "conf3: AMI with Groovy"]
                                                     }
                                                     else if(Env.equals("stage")){
-                                                        return["ami-sd34sdf:  AMI with Java", "ami-sdf345sdc: AMI with Python", "ami-sdf34sdf: AMI with Groovy"]
+                                                        return["conf4:  AMI with Java", "conf5: AMI with Python", "conf6: AMI with Groovy"]
                                                     }
                                                     else if(Env.equals("prod")){
-                                                        return["ami-sdf34sdf:  AMI with Java", "ami-sdf34ds: AMI with Python", "ami-sdf3sf3: AMI with Groovy"]
+                                                        return["conf7:  AMI with Java", "conf8: AMI with Python", "conf9: AMI with Groovy"]
                                                     }
                                                     '''
                                                 ]
